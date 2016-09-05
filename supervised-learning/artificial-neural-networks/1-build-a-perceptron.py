@@ -30,7 +30,7 @@ class Perceptron:
         @return the output of a threshold perceptron with given inputs based on
         perceptron weights and threshold.
         """ 
-        strength = np.dot(values,self.weights)
+        strength = np.dot(inputs, self.weights)
         # Then return 0 or 1 depending on strength compared to threshold  
         return int(strength > self.threshold)
 
