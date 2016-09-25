@@ -11813,7 +11813,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import libraries</span>
@@ -11871,14 +11871,14 @@ All: 395
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Calculate number of students</span>
 <span class="n">n_students</span> <span class="o">=</span> <span class="n">student_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="c1"># TODO: Calculate number of features</span>
-<span class="n">n_features</span> <span class="o">=</span> <span class="n">student_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">n_features</span> <span class="o">=</span> <span class="n">student_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span>  <span class="c1"># minus the target column</span>
 
 <span class="c1"># TODO: Calculate passing students</span>
 <span class="n">n_passed</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">student_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">student_data</span><span class="p">[</span><span class="s1">&#39;passed&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;yes&#39;</span><span class="p">])</span>
@@ -11887,7 +11887,7 @@ All: 395
 <span class="n">n_failed</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">student_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">student_data</span><span class="p">[</span><span class="s1">&#39;passed&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;no&#39;</span><span class="p">])</span>
 
 <span class="c1"># TODO: Calculate graduation rate</span>
-<span class="n">grad_rate</span> <span class="o">=</span> <span class="n">n_passed</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">n_students</span><span class="p">)</span>
+<span class="n">grad_rate</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">n_passed</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_students</span> <span class="o">*</span> <span class="mi">100</span>
 
 <span class="c1"># Print the results</span>
 <span class="k">print</span> <span class="s2">&quot;Total number of students: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_students</span><span class="p">)</span>
@@ -11908,10 +11908,10 @@ All: 395
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Total number of students: 395
-Number of features: 31
+Number of features: 30
 Number of students who passed: 265
 Number of students who failed: 130
-Graduation rate of the class: 0.67%
+Graduation rate of the class: 67.09%
 </pre>
 </div>
 </div>
@@ -12618,7 +12618,14 @@ F1 score for test set: 0.8054.
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
-<p>We decided to use a model called Support Vector Machine. This model is very accurate for predicting if a student needs early intervention or not. It works by using examples of previous students that both needed and did not need intervention in previous years, and based on some attributes of those studnets such as their school, age, sex, study time, absences, activities, etc., the model classifies if a student needs intervention.</p>
+<p>Here is an example of how Support Vector Machines work in classifiying the students:</p>
+<p>Let's imagine that we have a group of students, and some need intervention and some don't. The students are placed in different locations of a soccer field based on their features (let's keep it to two for simplicity): absences and study time. The students that need intervention wear a red t-shirt, and the students that don't wear a blue t-shirt. A Support Vector Machine will try to put a line in the field in such a way that all the blue t-shirts will be in one side of the line, and all the red t-shirts will be in the other side, trying to have as big a gap on either side of the line as possible.</p>
+<p>In an ideal world there is a line that would perfectly separate all the blues in one side, and all the reds in the other side. But in practice this doesn't happen very often. Even if the SVM finds a line that will keep the majority of the t-shirts on each side, there will be a few that will be in the wrong side. When this happens SVM uses a trick.  First, SVM will use its power to levitate all the students, and then will use one of the big banners from the fans in the public and slip it between the students to separate them.</p>
+<p>The students are the data.</p>
+<p>The line is the classifier.</p>
+<p>The levitation trick is called kernelling.</p>
+<p>And the banner is the hyperplane.</p>
+<p>Then, when a new student enters the field without a t-shirt, based on the line and the banner we can determine if it should wear a red or blue t-shirt (testing).</p>
 
 </div>
 </div>
