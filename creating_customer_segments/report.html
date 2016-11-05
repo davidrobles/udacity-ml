@@ -11782,7 +11782,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import libraries necessary for this project</span>
@@ -11835,7 +11835,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Display a description of the dataset</span>
@@ -11962,7 +11962,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Select three indices of your choice you wish to sample from the dataset</span>
@@ -12063,11 +12063,25 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
 <p><strong>Customer Index 18</strong></p>
-<p>With high spending in <em>all categories</em>, I would guess this is a <strong>supermarket</strong>.</p>
+<p>With average or higher spending in <em>all categories</em>, I would guess this is a <strong>supermarket</strong>.</p>
+<ul>
+<li>The fresh spending is 1.5x compared to the mean.</li>
+<li>The milk spending is 1.1x compared to the mean.</li>
+<li>The grocery spending is 1.27x compared to the mean.</li>
+</ul>
 <p><strong>Customer Index 33</strong></p>
-<p>With very high spending in <em>fresh</em>, I would guess this is a <strong>market</strong>.</p>
+<p>With very high spending in <em>fresh</em>, high spending in <em>frozen</em>, and very low spending in <em>Detergents_paper</em> I would guess this is a <strong>market</strong>.</p>
+<ul>
+<li>The fresh spending is 2.4x compared to the mean.</li>
+<li>The frozen spending is 2x compared to the mean.</li>
+</ul>
 <p><strong>Customer Index 45</strong></p>
 <p>With high spending in <em>milk</em> and <em>grocery</em>, and low spending in <em>frozen</em>, I would guess this is a <strong>mom-and-pop grocery store</strong>.</p>
+<ul>
+<li>The milk spending is 3.7x compared to the mean.</li>
+<li>The grocery spending is 2.7x compared to the mean.</li>
+<li>The mean is 7.9x higher than the spending in <em>frozen</em>.</li>
+</ul>
 
 </div>
 </div>
@@ -18994,13 +19008,13 @@ p4aRiIiIiIgEPTWMREREREQk6KlhJCIiIiIiQU8NIxERERERCXpqGImIiIiISNBTw0hERERERILe
 </ul>
 <p><strong>Using the visualization provided above, discuss what the first four dimensions best represent in terms of customer spending.</strong></p>
 <p><strong>Dimension 1</strong></p>
-<p>This dimension gives a very high positive weight on <em>Detergents_Paper</em>, and significant positive weight on <em>Milk</em> and <em>Grocery</em>.</p>
+<p>This dimension is highly correlated with <em>Milk</em>, <em>Grocery</em> and <em>Detergents_Paper</em>, and negatively correlated with <em>Fresh</em> and <em>Frozen</em>. This suggests it could be a <strong>mom-and-pop grocery store</strong>.</p>
 <p><strong>Dimension 2</strong></p>
-<p>This dimension gives a high positive weight on <em>Fresh</em>, <em>Frozen</em>, and <em>Delicatessen</em>, and low positive weights on the other features.</p>
+<p>This component is highly correlated with <em>Fresh</em>, <em>Frozen</em> and <em>Delicatessen</em>, all of which are items used in <strong>cuisine</strong>.</p>
 <p><strong>Dimension 3</strong></p>
-<p>This dimension gives a very high positive weight on <em>Delicatessen</em>, and very low negative weight on <em>Fresh</em>.</p>
+<p>This component is highly correlated with <em>Frozen</em> and <em>Delicatessen</em>, and negatively correlated with <em>Fresh</em>. This could be a <strong>deli store</strong>.</p>
 <p><strong>Dimension 4</strong></p>
-<p>This dimension gives a high positive weight on <em>Frozen</em>, and significant positive weight on <em>Detergents_Paper</em>. It also gives <em>Delicatessen</em> a very low negative weight, and low negative weight to <em>Fresh</em>.</p>
+<p>This component is very highly correlated with <em>Frozen</em> and <em>Detergents_Paper</em>, and negatively correlated with <em>Delicatessen</em> and <em>Fresh</em>. This could be an <strong>ice cream shop</strong>.</p>
 
 </div>
 </div>
@@ -20242,9 +20256,25 @@ AJPx/zr9B0psTaRcAAAAAElFTkSuQmCC
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
 <ul>
-<li><p>Segment 0 shows high spendings in most categories, including Detergents_paper, so this could be a <strong>Restaurant</strong>.</p>
+<li><p>Segment 0 shows high spending in <em>Milk</em>, <em>Grocery</em> and <em>Detergents_paper</em>, so this could be a <strong>Coffee Shop</strong>. Here is the spending in relation to the mean of each feature of the dataset:</p>
+<ul>
+<li>Fresh: 0.35x</li>
+<li>Milk: 1.1x</li>
+<li>Grocery: 1.2x</li>
+<li>Frozen: 0.34x</li>
+<li>Detergents_paper: 1.05x</li>
+<li>Delicatessen: 0.62x</li>
+</ul>
 </li>
-<li><p>Segment 1 shows high spendings in most categories, but not in <em>Detergents_Paper</em>, so this could be a <strong>Retailer</strong>.</p>
+<li><p>Segment 1 shows high spendings in most categories, but not in <em>Detergents_Paper</em>, so this could be a <strong>Retailer</strong>. Here is the spending in relation to the mean of each feature of the dataset:</p>
+<ul>
+<li>Fresh: 0.73x</li>
+<li>Milk: 0.35x</li>
+<li>Grocery: 0.33x</li>
+<li>Frozen: 0.67x</li>
+<li>Detergents_paper: 0.11x</li>
+<li>Delicatessen: 0.46x</li>
+</ul>
 </li>
 </ul>
 
@@ -20355,7 +20385,12 @@ Sample point 2 predicted to be in Cluster 0
 <p><strong>Answer:</strong></p>
 <p>Since Segment 1 buys more fresh food, I would guess that running an A/B test on this segment would show that the consumers wouldn't be happy delivering 3 days a week only.</p>
 <p>However, in Segment 0 I think the customers wouldn't have a problem with delivering 3 days a week. Even though they order Milk, 3 days a week is more than enough for that. With fresh foods a daily delivery makes more sense.</p>
-<p>I think the only way to really know what would happen is to run A/B tests in a few customers (e.g. 5% of the customers), and based on the results decide if the change makes sense or if is better to stay with the same strategy.</p>
+<p>The only way to really know what would happen is to run A/B tests. This is how I would do it. For each cluster I would select a random sample (e.g. 5%):</p>
+<ul>
+<li>Experimental group - 5%</li>
+<li>Control group - 95%</li>
+</ul>
+<p>and I would reduce the delivery frequency for each customer in that 5% of each cluster. After running this experiment I would talk to the customers after a couple of weeks/months, and based on their feedback I would create a quantitative analysis and score their satisfaction. If this analysis shows that the experimental group was as happy as the control group, I would then reduce the frequency to all the customers in the control group also.</p>
 
 </div>
 </div>
